@@ -683,8 +683,6 @@ elif tab == "Ver Documentos":
                 """,
                 height=50,
             )
-        else:
-            st.info("Este país no tiene documentos cargados.")
 
 # ================= TAB: AGREGAR PAÍS =================
 elif tab == "Agregar Pais":
