@@ -1,0 +1,170 @@
+{
+  "argentina": {
+    "amount": "500.00",
+    "currency": "ARS",
+    "billing_address": {
+      "country": "AR",
+      "state": "Cordoba",
+      "city": "Cordoba",
+      "address": "Av Arequipa 1234",
+      "zip": "5000",
+      "phone": "+5493482747561"
+    }
+  },
+  "bolivia": {
+    "amount": "350.00",
+    "currency": "BOB",
+    "billing_address": {
+      "country": "BO",
+      "state": "Santa Cruz",
+      "city": "Santa Cruz de la Sierra",
+      "address": "Av Banzer 1000",
+      "zip": "0000",
+      "phone": "+59176365568"
+    }
+  },
+  "brasil": {
+    "amount": "250.00",
+    "currency": "BRL",
+    "billing_address": {
+      "country": "BR",
+      "state": "Sao Paulo",
+      "city": "Sao Paulo",
+      "address": "Av Paulista 1000",
+      "zip": "01310-100",
+      "phone": "+5511987654321"
+    }
+  },
+  "chile": {
+    "amount": "45000.00",
+    "currency": "CLP",
+    "billing_address": {
+      "country": "CL",
+      "state": "Region Metropolitana",
+      "city": "Santiago",
+      "address": "Av Providencia 1000",
+      "zip": "8320000",
+      "phone": "+56993620113"
+    }
+  },
+  "colombia": {
+    "amount": "200000.00",
+    "currency": "COP",
+    "billing_address": {
+      "country": "CO",
+      "state": "Antioquia",
+      "city": "Medellin",
+      "address": "Av Providencia 1000",
+      "zip": "050021",
+      "phone": "+573008006290"
+    }
+  },
+  "costa rica": {
+    "amount": "25000.00",
+    "currency": "CRC",
+    "billing_address": {
+      "country": "CR",
+      "state": "San Jose",
+      "city": "San Jose",
+      "address": "Av Central 100",
+      "zip": "10101",
+      "phone": "+5783289903"
+    }
+  },
+  "dominicana": {
+    "amount": "3000.00",
+    "currency": "DOP",
+    "billing_address": {
+      "country": "DO",
+      "state": "Santo Domingo",
+      "city": "Santo Domingo",
+      "address": "Av Duarte 100",
+      "zip": "10101",
+      "phone": "+5783289903"
+    }
+  },
+  "ecuador": {
+    "amount": "3000.00",
+    "currency": "USD",
+    "billing_address": {
+      "country": "EC",
+      "state": "Pichincha",
+      "city": "Quito",
+      "address": "Av Amazonas 1234",
+      "zip": "170150",
+      "phone": "+593986440132"
+    }
+  },
+  "guatemala": {
+    "amount": "100.00",
+    "currency": "USD",
+    "billing_address": {
+      "country": "GT",
+      "state": "Guatemala",
+      "city": "Guatemala",
+      "address": "Av Reforma",
+      "zip": "01001",
+      "phone": "+50212345678"
+    }
+  },
+  "honduras": {
+    "amount": "1250.00",
+    "currency": "HNL",
+    "billing_address": {
+      "country": "HN",
+      "state": "Cortes",
+      "city": "San Pedro Sula",
+      "address": "Av Circunvalacion",
+      "zip": "21102",
+      "phone": "+50487981917"
+    }
+  },
+  "mexico": {
+    "amount": "900.00",
+    "currency": "MXN",
+    "billing_address": {
+      "country": "MX",
+      "state": "Ciudad de Mexico",
+      "city": "Ciudad de Mexico",
+      "address": "Av Arequipa 1234",
+      "zip": "06000",
+      "phone": "+524424667608"
+    }
+  },
+  "panama": {
+    "amount": "50.00",
+    "currency": "PAB",
+    "billing_address": {
+      "country": "PA",
+      "state": "Panama",
+      "city": "Ciudad de Panama",
+      "address": "Av Balboa 100",
+      "zip": "0801",
+      "phone": "+50764350000"
+    }
+  },
+  "paraguay": {
+    "amount": "370000.00",
+    "currency": "PYG",
+    "billing_address": {
+      "country": "PY",
+      "state": "Central",
+      "city": "Asuncion",
+      "address": "Av Mariscal Lopez",
+      "zip": "1000",
+      "phone": "+57981994769"
+    }
+  },
+  "peru": {
+    "amount": "190.00",
+    "currency": "PEN",
+    "billing_address": {
+      "country": "PE",
+      "state": "Lima",
+      "city": "Lima",
+      "address": "Av Arequipa 1234",
+      "zip": "15001",
+      "phone": "+51908815030"
+    }
+  }
+}
