@@ -97,7 +97,7 @@
   },
   "guatemala": {
     "amount": "100.00",
-    "currency": "USD",
+    "currency": "GTQ",
     "billing_address": {
       "country": "GT",
       "state": "Guatemala",
