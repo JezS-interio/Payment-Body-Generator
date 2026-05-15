@@ -54,13 +54,13 @@ export default function App() {
             <img src="/s-interio-logo.webp" alt="S-Interio" style={{ height: 36, objectFit: "contain" }} />
           </Box>
           <Box sx={{ width: "1px", height: 14, bgcolor: "#a78bfa33" }} />
-          <Typography sx={{ fontFamily: "'Space Grotesk', sans-serif", color: "#fbbf24", fontSize: 10, letterSpacing: 4, textTransform: "uppercase", opacity: 0.6 }}>
+          <Typography sx={{ fontFamily: "'Space Grotesk', sans-serif", color: "#fbbf24", fontSize: 11, letterSpacing: 1.5, textTransform: "uppercase", opacity: 0.7, fontWeight: 600 }}>
             Payments Console
           </Typography>
           <Box sx={{ flex: 1 }} />
           <Box sx={{ border: "1px solid #a78bfa22", px: 1.5, py: 0.5, display: "flex", alignItems: "center", gap: 1 }}>
             <Box sx={{ width: 5, height: 5, borderRadius: "50%", bgcolor: "#22c55e", boxShadow: "0 0 6px #22c55e" }} />
-            <Typography sx={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 9, color: "#a78bfa77", letterSpacing: 2 }}>LIVE</Typography>
+            <Typography sx={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 9, color: "#a78bfa77", letterSpacing: 1 }}>LIVE</Typography>
           </Box>
         </Box>
 
@@ -74,8 +74,8 @@ export default function App() {
             TabIndicatorProps={{ style: { backgroundColor: "#fbbf24", height: "1px" } }}
             sx={{
               "& .MuiTab-root": {
-                fontFamily: "'Space Grotesk', sans-serif", color: "#a78bfaaa", fontWeight: 700, fontSize: 12,
-                letterSpacing: 3, minHeight: 46, textTransform: "uppercase", px: 3, transition: "color 0.2s"
+                fontFamily: "'Space Grotesk', sans-serif", color: "#a78bfaaa", fontWeight: 600, fontSize: 12,
+                letterSpacing: 1, minHeight: 46, textTransform: "uppercase", px: 3, transition: "color 0.2s"
               },
               "& .Mui-selected": { color: "#f8fafc !important" },
               "& .MuiTab-root:hover": { color: "#a78bfa !important" },
@@ -98,7 +98,7 @@ export default function App() {
           {tab === 4 && <Methods />}
         </Container>
 
-        <Typography align="center" sx={{ color: "#a78bfa22", pb: 4, fontFamily: "'Space Grotesk', sans-serif", letterSpacing: 4, fontSize: 10, textTransform: "uppercase" }}>
+        <Typography align="center" sx={{ color: "#a78bfa22", pb: 4, fontFamily: "'Space Grotesk', sans-serif", letterSpacing: 2, fontSize: 10, textTransform: "uppercase" }}>
           by Jezabel Rosso
         </Typography>
       </Box>
