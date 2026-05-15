@@ -17,19 +17,19 @@ const inputSx = {
     "&:hover fieldset": { borderColor: "#a78bfa88" },
     "&.Mui-focused fieldset": { borderColor: "#fbbf24", boxShadow: "0 0 0 1px #fbbf2422" },
   },
-  "& .MuiInputLabel-root": { color: "#c4b5fd", fontFamily: "monospace", fontSize: 11, letterSpacing: 2, textTransform: "uppercase" },
+  "& .MuiInputLabel-root": { color: "#c4b5fd", fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, letterSpacing: 2, textTransform: "uppercase" },
   "& .MuiInputLabel-root.Mui-focused": { color: "#fbbf24" },
-  "& input": { color: "#e2e8f0", fontFamily: "monospace", fontSize: 13 },
-  "& .MuiSelect-select": { color: "#e2e8f0", fontFamily: "monospace", fontSize: 13 },
+  "& input": { color: "#e2e8f0", fontFamily: "'Space Grotesk', sans-serif", fontSize: 13 },
+  "& .MuiSelect-select": { color: "#e2e8f0", fontFamily: "'Space Grotesk', sans-serif", fontSize: 13 },
 };
 
 function SectionLabel({ step, title }) {
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2.5 }}>
-      <Typography sx={{ color: "#fbbf24", fontFamily: "monospace", fontSize: 11, fontWeight: 900, letterSpacing: 1, whiteSpace: "nowrap" }}>
+      <Typography sx={{ color: "#fbbf24", fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 900, letterSpacing: 1, whiteSpace: "nowrap" }}>
         [{step}]
       </Typography>
-      <Typography sx={{ color: "#c4b5fd", fontFamily: "monospace", fontSize: 11, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase", whiteSpace: "nowrap" }}>
+      <Typography sx={{ color: "#c4b5fd", fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase", whiteSpace: "nowrap" }}>
         {title}
       </Typography>
       <Box sx={{ flex: 1, height: "1px", background: "linear-gradient(90deg, #a78bfa33, transparent)" }} />
@@ -131,11 +131,11 @@ export default function PaymentBody() {
 
   return (
     <Box sx={{ pb: 4 }}>
-      <Typography sx={{ fontFamily: "monospace", color: "#a78bfaaa", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", mb: 1 }}>
+      <Typography sx={{ fontFamily: "'Space Grotesk', sans-serif", color: "#a78bfaaa", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", mb: 1 }}>
         INTERNAL · <span style={{ color: "#fbbf24", opacity: 0.6 }}>PAYMENT TOOLS</span>
       </Typography>
-      <Typography sx={{ fontFamily: "monospace", fontWeight: 900, color: "#e2e8f0", fontSize: 22, letterSpacing: -0.5, mb: 0.5 }}>Payment Body Generator</Typography>
-      <Typography sx={{ fontFamily: "monospace", color: "#a78bfacc", fontSize: 12, letterSpacing: 2, mb: 3 }}>// build the payment request for any LatAm country</Typography>
+      <Typography sx={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900, color: "#e2e8f0", fontSize: 22, letterSpacing: -0.5, mb: 0.5 }}>Payment Body Generator</Typography>
+      <Typography sx={{ fontFamily: "'Space Grotesk', sans-serif", color: "#a78bfacc", fontSize: 12, letterSpacing: 2, mb: 3 }}>// build the payment request for any LatAm country</Typography>
 
       <form onSubmit={handleSubmit} autoComplete="off">
         {/* MERCHANT */}
@@ -252,11 +252,11 @@ export default function PaymentBody() {
           <Box sx={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
             <FormControlLabel
               control={<Switch checked={form.recurring_init} onChange={handleSwitch} name="recurring_init" color="primary" />}
-              label={<Typography sx={{ color: "#a78bfa", fontFamily: "monospace", fontWeight: 600, fontSize: 12, letterSpacing: 2 }}>recurring_init</Typography>}
+              label={<Typography sx={{ color: "#a78bfa", fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: 2 }}>recurring_init</Typography>}
             />
             <FormControlLabel
               control={<Switch checked={form.req_token} onChange={handleSwitch} name="req_token" color="primary" />}
-              label={<Typography sx={{ color: "#a78bfa", fontFamily: "monospace", fontWeight: 600, fontSize: 12, letterSpacing: 2 }}>req_token</Typography>}
+              label={<Typography sx={{ color: "#a78bfa", fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: 2 }}>req_token</Typography>}
             />
           </Box>
         </Paper>
@@ -265,7 +265,7 @@ export default function PaymentBody() {
           <Button type="submit" variant="outlined" size="large"
             sx={{
               minWidth: 220, fontWeight: 700, fontSize: 11, letterSpacing: 4, textTransform: "uppercase",
-              fontFamily: "monospace", background: "transparent", color: "#a78bfa",
+              fontFamily: "'Space Grotesk', sans-serif", background: "transparent", color: "#a78bfa",
               border: "1px solid #a78bfa55", borderRadius: 0, px: 5, py: 1.5,
               boxShadow: "0 0 12px #a78bfa11",
               "&:hover": { color: "#fbbf24", borderColor: "#fbbf24", bgcolor: "transparent", boxShadow: "0 0 20px #fbbf2433" }
@@ -279,7 +279,7 @@ export default function PaymentBody() {
         <Box sx={{ mb: 2 }}>
           {errors.map((e, i) => (
             <Alert key={i} severity="error" onClose={() => setErrors(prev => prev.filter((_, j) => j !== i))}
-              sx={{ mb: 1, bgcolor: "#08040a", color: "#f87171", borderLeft: "2px solid #ef4444", borderRadius: 0, fontFamily: "monospace", fontSize: 12 }}>
+              sx={{ mb: 1, bgcolor: "#08040a", color: "#f87171", borderLeft: "2px solid #ef4444", borderRadius: 0, fontFamily: "'Space Grotesk', sans-serif", fontSize: 12 }}>
               {e}
             </Alert>
           ))}
@@ -288,7 +288,7 @@ export default function PaymentBody() {
 
       {success && (
         <Alert severity="success" onClose={() => setSuccess("")}
-          sx={{ mb: 2, bgcolor: "#04080a", color: "#4ade80", borderLeft: "2px solid #22c55e", borderRadius: 0, fontFamily: "monospace", fontSize: 12 }}>
+          sx={{ mb: 2, bgcolor: "#04080a", color: "#4ade80", borderLeft: "2px solid #22c55e", borderRadius: 0, fontFamily: "'Space Grotesk', sans-serif", fontSize: 12 }}>
           {success}
         </Alert>
       )}
@@ -297,7 +297,7 @@ export default function PaymentBody() {
         <Paper sx={{ p: 3, bgcolor: "#080810", border: "1px solid #a78bfa44", borderRadius: 0, boxShadow: "0 0 24px #a78bfa0a" }}>
           <SectionLabel step="OUT" title="Final Body" />
           <Box sx={{ bgcolor: "#04040a", p: 2, overflowX: "auto", border: "1px solid #a78bfa1e" }}>
-            <pre style={{ margin: 0, color: "#a78bfa", fontSize: 12, fontFamily: "monospace", lineHeight: 1.8 }}>
+            <pre style={{ margin: 0, color: "#a78bfa", fontSize: 12, fontFamily: "'JetBrains Mono', monospace", lineHeight: 1.8 }}>
               {JSON.stringify(body, null, 2)}
             </pre>
           </Box>
@@ -309,7 +309,7 @@ export default function PaymentBody() {
                 onClick={handleCopy}
                 sx={{
                   fontWeight: 700, fontSize: 10, letterSpacing: 3, textTransform: "uppercase",
-                  fontFamily: "monospace", borderRadius: 0, px: 3, py: 1,
+                  fontFamily: "'Space Grotesk', sans-serif", borderRadius: 0, px: 3, py: 1,
                   background: "transparent",
                   color: copied ? "#22c55e" : "#a78bfa",
                   border: `1px solid ${copied ? "#22c55e44" : "#a78bfa44"}`,
@@ -325,7 +325,7 @@ export default function PaymentBody() {
               startIcon={<DownloadIcon />}
               sx={{
                 fontWeight: 700, fontSize: 10, letterSpacing: 3, textTransform: "uppercase",
-                fontFamily: "monospace", borderRadius: 0, px: 3, py: 1,
+                fontFamily: "'Space Grotesk', sans-serif", borderRadius: 0, px: 3, py: 1,
                 background: "transparent", color: "#fbbf24",
                 border: "1px solid #fbbf2433",
                 "&:hover": { borderColor: "#fbbf24", bgcolor: "transparent", boxShadow: "0 0 10px #fbbf2422" }
@@ -345,3 +345,4 @@ export default function PaymentBody() {
     </Box>
   );
 }
+

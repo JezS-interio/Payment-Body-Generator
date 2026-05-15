@@ -12,9 +12,9 @@ const inputSx = {
     "&:hover fieldset": { borderColor: "#a78bfa88" },
     "&.Mui-focused fieldset": { borderColor: "#fbbf24", boxShadow: "0 0 0 1px #fbbf2422" },
   },
-  "& .MuiInputLabel-root": { color: "#c4b5fd", fontFamily: "monospace", fontSize: 11, letterSpacing: 2, textTransform: "uppercase" },
+  "& .MuiInputLabel-root": { color: "#c4b5fd", fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, letterSpacing: 2, textTransform: "uppercase" },
   "& .MuiInputLabel-root.Mui-focused": { color: "#fbbf24" },
-  "& .MuiSelect-select": { color: "#e2e8f0", fontFamily: "monospace", fontSize: 13 },
+  "& .MuiSelect-select": { color: "#e2e8f0", fontFamily: "'Space Grotesk', sans-serif", fontSize: 13 },
 };
 
 export default function Documents() {
@@ -36,16 +36,16 @@ export default function Documents() {
   }, []);
   return (
     <Box sx={{ pb: 4 }}>
-      <Typography sx={{ fontFamily: "monospace", color: "#a78bfaaa", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", mb: 1 }}>
+      <Typography sx={{ fontFamily: "'Space Grotesk', sans-serif", color: "#a78bfaaa", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", mb: 1 }}>
         INTERNAL · <span style={{ color: "#fbbf24", opacity: 0.6 }}>PAYMENT TOOLS</span>
       </Typography>
-      <Typography sx={{ fontFamily: "monospace", fontWeight: 900, color: "#e2e8f0", fontSize: 22, letterSpacing: -0.5, mb: 0.5 }}>Documents</Typography>
-      <Typography sx={{ fontFamily: "monospace", color: "#a78bfacc", fontSize: 12, letterSpacing: 2, mb: 3 }}>// available document types by country</Typography>
+      <Typography sx={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900, color: "#e2e8f0", fontSize: 22, letterSpacing: -0.5, mb: 0.5 }}>Documents</Typography>
+      <Typography sx={{ fontFamily: "'Space Grotesk', sans-serif", color: "#a78bfacc", fontSize: 12, letterSpacing: 2, mb: 3 }}>// available document types by country</Typography>
 
       <Paper sx={{ p: 3, mb: 2, bgcolor: "#0a0a12", border: "1px solid #a78bfa1e", borderRadius: 0 }}>
         <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2.5 }}>
-          <Typography sx={{ color: "#fbbf24", fontFamily: "monospace", fontSize: 11, fontWeight: 900, letterSpacing: 1 }}>[01]</Typography>
-          <Typography sx={{ color: "#a78bfa", fontFamily: "monospace", fontSize: 10, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase" }}>Country</Typography>
+          <Typography sx={{ color: "#fbbf24", fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 900, letterSpacing: 1 }}>[01]</Typography>
+          <Typography sx={{ color: "#a78bfa", fontFamily: "'Space Grotesk', sans-serif", fontSize: 10, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase" }}>Country</Typography>
           <Box sx={{ flex: 1, height: "1px", background: "linear-gradient(90deg, #a78bfa33, transparent)" }} />
         </Box>
         <TextField select label="Country" value={pais} onChange={e => setPais(e.target.value)} fullWidth sx={inputSx}>
@@ -57,8 +57,8 @@ export default function Documents() {
 
       <Paper sx={{ p: 3, bgcolor: "#0a0a12", border: "1px solid #a78bfa1e", borderRadius: 0 }}>
         <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2.5 }}>
-          <Typography sx={{ color: "#fbbf24", fontFamily: "monospace", fontSize: 11, fontWeight: 900, letterSpacing: 1 }}>[02]</Typography>
-          <Typography sx={{ color: "#a78bfa", fontFamily: "monospace", fontSize: 10, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase" }}>Documentos</Typography>
+          <Typography sx={{ color: "#fbbf24", fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 900, letterSpacing: 1 }}>[02]</Typography>
+          <Typography sx={{ color: "#a78bfa", fontFamily: "'Space Grotesk', sans-serif", fontSize: 10, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase" }}>Documentos</Typography>
           <Box sx={{ flex: 1, height: "1px", background: "linear-gradient(90deg, #a78bfa33, transparent)" }} />
         </Box>
         {(docs[pais] || []).length ? (
@@ -71,7 +71,7 @@ export default function Documents() {
                 sx={{
                   bgcolor: copiedDoc === d ? "#040a06" : "transparent",
                   color: copiedDoc === d ? "#22c55e" : "#a78bfa",
-                  fontWeight: 700, fontFamily: "monospace",
+                  fontWeight: 700, fontFamily: "'Space Grotesk', sans-serif",
                   border: `1px solid ${copiedDoc === d ? "#22c55e44" : "#a78bfa44"}`,
                   fontSize: 12, borderRadius: "2px", cursor: "pointer", letterSpacing: 1,
                   transition: "all 0.2s",
@@ -81,9 +81,10 @@ export default function Documents() {
             ))}
           </Box>
         ) : (
-          <Typography sx={{ color: "#a78bfa44", fontFamily: "monospace", fontSize: 11, letterSpacing: 2 }}>// no documents configured</Typography>
+          <Typography sx={{ color: "#a78bfa44", fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, letterSpacing: 2 }}>// no documents configured</Typography>
         )}
       </Paper>
     </Box>
   );
 }
+

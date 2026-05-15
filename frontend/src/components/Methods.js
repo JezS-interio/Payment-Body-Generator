@@ -5,10 +5,10 @@ import axios from "axios";
 function SectionLabel({ step, title }) {
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2.5 }}>
-      <Typography sx={{ color: "#fbbf24", fontFamily: "monospace", fontSize: 11, fontWeight: 900, letterSpacing: 1, whiteSpace: "nowrap" }}>
+      <Typography sx={{ color: "#fbbf24", fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 900, letterSpacing: 1, whiteSpace: "nowrap" }}>
         [{step}]
       </Typography>
-      <Typography sx={{ color: "#c4b5fd", fontFamily: "monospace", fontSize: 11, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase", whiteSpace: "nowrap" }}>
+      <Typography sx={{ color: "#c4b5fd", fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase", whiteSpace: "nowrap" }}>
         {title}
       </Typography>
       <Box sx={{ flex: 1, height: "1px", background: "linear-gradient(90deg, #a78bfa33, transparent)" }} />
@@ -56,20 +56,20 @@ export default function Methods() {
       "&:hover fieldset": { borderColor: "#a78bfa" },
       "&.Mui-focused fieldset": { borderColor: "#fbbf24" },
     },
-    "& .MuiInputLabel-root": { color: "#c4b5fd", fontFamily: "monospace", fontSize: 11, letterSpacing: 2, textTransform: "uppercase" },
+    "& .MuiInputLabel-root": { color: "#c4b5fd", fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, letterSpacing: 2, textTransform: "uppercase" },
     "& .MuiInputLabel-root.Mui-focused": { color: "#fbbf24" },
-    "& input": { color: "#e2e8f0", fontFamily: "monospace", fontSize: 13 },
-    "& .MuiSelect-select": { color: "#e2e8f0", fontFamily: "monospace", fontSize: 13 },
+    "& input": { color: "#e2e8f0", fontFamily: "'Space Grotesk', sans-serif", fontSize: 13 },
+    "& .MuiSelect-select": { color: "#e2e8f0", fontFamily: "'Space Grotesk', sans-serif", fontSize: 13 },
   };
   const paperSx = { p: 3, mb: 2, bgcolor: "#0a0a12", border: "1px solid #a78bfa1e", borderRadius: 0 };
 
   return (
     <Box sx={{ pb: 4 }}>
-      <Typography sx={{ fontFamily: "monospace", color: "#a78bfaaa", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", mb: 1 }}>
+      <Typography sx={{ fontFamily: "'Space Grotesk', sans-serif", color: "#a78bfaaa", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", mb: 1 }}>
         INTERNAL · <span style={{ color: "#fbbf24", opacity: 0.6 }}>PAYMENT TOOLS</span>
       </Typography>
-      <Typography sx={{ fontFamily: "monospace", fontWeight: 900, color: "#e2e8f0", fontSize: 22, letterSpacing: -0.5, mb: 0.5 }}>Payment Methods</Typography>
-      <Typography sx={{ fontFamily: "monospace", color: "#a78bfacc", fontSize: 12, letterSpacing: 2, mb: 3 }}>// manage payment methods by country</Typography>
+      <Typography sx={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900, color: "#e2e8f0", fontSize: 22, letterSpacing: -0.5, mb: 0.5 }}>Payment Methods</Typography>
+      <Typography sx={{ fontFamily: "'Space Grotesk', sans-serif", color: "#a78bfacc", fontSize: 12, letterSpacing: 2, mb: 3 }}>// manage payment methods by country</Typography>
 
       <form onSubmit={handleAdd} autoComplete="off">
         <Paper sx={paperSx}>
@@ -90,7 +90,7 @@ export default function Methods() {
             <Button type="submit" variant="contained" size="large"
               sx={{
                 minWidth: 220, fontWeight: 700, fontSize: 11, letterSpacing: 4, textTransform: "uppercase",
-                fontFamily: "monospace", background: "transparent", color: "#a78bfa",
+                fontFamily: "'Space Grotesk', sans-serif", background: "transparent", color: "#a78bfa",
                 border: "1px solid #a78bfa55", borderRadius: 0, px: 5, py: 1.5,
                 boxShadow: "0 0 12px #a78bfa11",
                 "&:hover": { color: "#fbbf24", borderColor: "#fbbf24", bgcolor: "transparent", boxShadow: "0 0 20px #fbbf2433" }
@@ -103,13 +103,13 @@ export default function Methods() {
 
       {success && (
         <Alert severity="success" onClose={() => setSuccess("")}
-          sx={{ mb: 2, bgcolor: "#04080a", color: "#4ade80", borderLeft: "2px solid #22c55e", borderRadius: 0, fontFamily: "monospace", fontSize: 12 }}>
+          sx={{ mb: 2, bgcolor: "#04080a", color: "#4ade80", borderLeft: "2px solid #22c55e", borderRadius: 0, fontFamily: "'Space Grotesk', sans-serif", fontSize: 12 }}>
           {success}
         </Alert>
       )}
       {error && (
         <Alert severity="error" onClose={() => setError("")}
-          sx={{ mb: 2, bgcolor: "#08040a", color: "#f87171", borderLeft: "2px solid #ef4444", borderRadius: 0, fontFamily: "monospace", fontSize: 12 }}>
+          sx={{ mb: 2, bgcolor: "#08040a", color: "#f87171", borderLeft: "2px solid #ef4444", borderRadius: 0, fontFamily: "'Space Grotesk', sans-serif", fontSize: 12 }}>
           {error}
         </Alert>
       )}
@@ -119,13 +119,14 @@ export default function Methods() {
         {pais && (methods[pais]?.length ? (
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
             {methods[pais].map(m => (
-              <Chip key={m} label={m} sx={{ bgcolor: "transparent", color: "#a78bfa", fontWeight: 700, fontFamily: "monospace", fontSize: 11, border: "1px solid #a78bfa44", borderRadius: "2px", letterSpacing: 1 }} />
+              <Chip key={m} label={m} sx={{ bgcolor: "transparent", color: "#a78bfa", fontWeight: 700, fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, border: "1px solid #a78bfa44", borderRadius: "2px", letterSpacing: 1 }} />
             ))}
           </Box>
         ) : (
-          <Typography sx={{ color: "#a78bfa44", fontFamily: "monospace", fontSize: 11, letterSpacing: 2 }}>// no methods configured</Typography>
+          <Typography sx={{ color: "#a78bfa44", fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, letterSpacing: 2 }}>// no methods configured</Typography>
         ))}
       </Paper>
     </Box>
   );
 }
+
