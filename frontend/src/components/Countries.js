@@ -3,7 +3,7 @@ import { Box, Typography, Paper, Accordion, AccordionSummary, AccordionDetails, 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import axios from "axios";
 
-const api = axios.create({ baseURL: "http://localhost:4000/api" });
+const api = axios.create({ baseURL: process.env.NODE_ENV === "production" ? "/api" : "http://localhost:4000/api" });
 
 export default function Countries() {
   const [paises, setPaises] = useState({});
