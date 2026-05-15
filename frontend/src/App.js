@@ -89,13 +89,13 @@ export default function App() {
           </Tabs>
         </Box>
 
-        {/* CONTENT */}
+        {/* CONTENT — keep all mounted to preserve form state across tab switches */}
         <Container maxWidth="lg" sx={{ pt: 4, pb: 8, px: { xs: 2, md: 6 } }}>
-          {tab === 0 && <PaymentBody />}
-          {tab === 1 && <Documents />}
-          {tab === 2 && <AddCountry />}
-          {tab === 3 && <Countries />}
-          {tab === 4 && <Methods />}
+          <Box sx={{ display: tab === 0 ? "block" : "none" }}><PaymentBody /></Box>
+          <Box sx={{ display: tab === 1 ? "block" : "none" }}><Documents /></Box>
+          <Box sx={{ display: tab === 2 ? "block" : "none" }}><AddCountry /></Box>
+          <Box sx={{ display: tab === 3 ? "block" : "none" }}><Countries /></Box>
+          <Box sx={{ display: tab === 4 ? "block" : "none" }}><Methods /></Box>
         </Container>
 
         <Typography align="center" sx={{ color: "#a78bfa22", pb: 4, fontFamily: "'Space Grotesk', sans-serif", letterSpacing: 2, fontSize: 10, textTransform: "uppercase" }}>
