@@ -1,0 +1,16 @@
+{
+  "argentina": ["smt-bank-transfer", "bts-ars", "inf-ar-btr-offline", "inf-ar-btr-pull"],
+  "bolivia": ["smt-wallet", "vpay"],
+  "brasil": ["pix","s-interio-cashier", "inf-br-qr-copy"],
+  "chile": ["paycash-chile", "smt-wallet", "smt-credit-card", "smt-bank-transfer", "s-interio-cashier", "inf-cl-btr-offline"],
+  "colombia": ["smt-nequi", "smt-transfiya", "smt-efecty", "smt-pse", "smt-bank-transfer", "paycash-colombia", "bts-cop"],
+  "ecuador": ["smt-wallet", "smt-bank-transfer", "paycash-ecuador"],
+  "mexico": ["smt-bank-transfer", "paycash-mexico", "bts-mxn", "inf-mx-btr-spei"],
+  "peru": ["smt-cip", "smt-wallet", "smt-bank-transfer", "paycash-peru", "s-interio-cashier", "inf-pe-btr-offline", "inf-pe-btr-pull", "inf-pe-offline-service-payment"],
+  "honduras": ["paycash-honduras"],
+  "guatemala": ["paycash-guatemala"],
+  "costa rica": ["paycash-costarica"],
+  "panama": ["paycash-panama"],
+  "dominicana": ["paycash-dominicana"],
+  "credit_card": ["trans"]
+}
