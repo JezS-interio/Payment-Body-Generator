@@ -15,7 +15,7 @@ const theme = createTheme({
     background: { default: "#06060e", paper: "#0a0a12" },
     text: { primary: "#e2e8f0", secondary: "#a78bfa" }
   },
-  typography: { fontFamily: "'Outfit', 'Inter', sans-serif" },
+  typography: { fontFamily: "'Space Grotesk', 'Inter', sans-serif" },
   shape: { borderRadius: 0 },
   components: {
     MuiPaper: { styleOverrides: { root: { borderRadius: 0 } } },

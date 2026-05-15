@@ -52,102 +52,96 @@ function generarHash(order_number, order_amount, order_currency, order_descripti
 }
 
 // ========== ENDPOINTS =============
-app.get("/api/paises", (req, res) => {
-  res.json(readJson("paises.json"));
-});
-app.get("/api/documentos", (req, res) => {
-  res.json(readJson("documentos.json"));
-});
-app.get("/api/methods", (req, res) => {
-  res.json(readJson("methods.json"));
-});
+// Routes registered at both /api/* and /* to handle Vercel prefix stripping
+function registerRoutes(r) {
+  r.get("/paises", (req, res) => res.json(readJson("paises.json")));
+  r.get("/documentos", (req, res) => res.json(readJson("documentos.json")));
+  r.get("/methods", (req, res) => res.json(readJson("methods.json")));
 
-app.post("/api/paises", (req, res) => {
-  const { nombre, amount, currency, billing_address } = req.body;
-  if (!nombre || !amount || !currency || !billing_address) return res.status(400).json({ error: "Faltan campos" });
-  const paises = readJson("paises.json");
-  if (paises[nombre]) return res.status(400).json({ error: "El país ya existe" });
-  const [okAmount, errAmount] = validarAmount(amount);
-  if (!okAmount) return res.status(400).json({ error: errAmount });
-  const [okPhone, errPhone] = validarPhone(billing_address.phone);
-  if (!okPhone) return res.status(400).json({ error: errPhone });
-  paises[nombre] = {
-    amount: parseFloat(amount).toFixed(2),
-    currency: currency.trim().toUpperCase(),
-    billing_address: {
-      country: billing_address.country.trim().toUpperCase(),
-      state: billing_address.state.trim(),
-      city: billing_address.city.trim(),
-      address: billing_address.address.trim(),
-      zip: billing_address.zip.trim(),
-      phone: billing_address.phone.trim()
-    }
-  };
-  writeJson("paises.json", paises);
-  res.json({ success: true });
-});
+  r.post("/paises", (req, res) => {
+    const { nombre, amount, currency, billing_address } = req.body;
+    if (!nombre || !amount || !currency || !billing_address) return res.status(400).json({ error: "Faltan campos" });
+    const paises = readJson("paises.json");
+    if (paises[nombre]) return res.status(400).json({ error: "El país ya existe" });
+    const [okAmount, errAmount] = validarAmount(amount);
+    if (!okAmount) return res.status(400).json({ error: errAmount });
+    const [okPhone, errPhone] = validarPhone(billing_address.phone);
+    if (!okPhone) return res.status(400).json({ error: errPhone });
+    paises[nombre] = {
+      amount: parseFloat(amount).toFixed(2),
+      currency: currency.trim().toUpperCase(),
+      billing_address: {
+        country: billing_address.country.trim().toUpperCase(),
+        state: billing_address.state.trim(),
+        city: billing_address.city.trim(),
+        address: billing_address.address.trim(),
+        zip: billing_address.zip.trim(),
+        phone: billing_address.phone.trim()
+      }
+    };
+    writeJson("paises.json", paises);
+    res.json({ success: true });
+  });
 
-app.post("/api/methods", (req, res) => {
-  const { pais, method } = req.body;
-  if (!pais || !method) return res.status(400).json({ error: "Faltan campos" });
-  const methods = readJson("methods.json");
-  if (!methods[pais]) methods[pais] = [];
-  if (methods[pais].includes(method)) return res.status(400).json({ error: "Ese method ya existe para este país" });
-  methods[pais].push(method);
-  writeJson("methods.json", methods);
-  res.json({ success: true });
-});
+  r.post("/methods", (req, res) => {
+    const { pais, method } = req.body;
+    if (!pais || !method) return res.status(400).json({ error: "Faltan campos" });
+    const methods = readJson("methods.json");
+    if (!methods[pais]) methods[pais] = [];
+    if (methods[pais].includes(method)) return res.status(400).json({ error: "Ese method ya existe para este país" });
+    methods[pais].push(method);
+    writeJson("methods.json", methods);
+    res.json({ success: true });
+  });
 
-app.post("/api/generar-body", (req, res) => {
-  const {
-    merchant_key, password, order_number, order_description, amount, currency, method, cancel_url, success_url, error_url,
-    customer_name, customer_email, billing_address, recurring_init, req_token
-  } = req.body;
-  let errores = [];
-  if (!merchant_key?.trim()) errores.push("merchant_key es obligatorio");
-  if (!password?.trim()) errores.push("password es obligatorio");
-  if (!order_number?.trim()) errores.push("Order number es obligatorio");
-  if (!order_description?.trim()) errores.push("Order description es obligatorio");
-  const [okAmount, errAmount] = validarAmount(amount);
-  if (!okAmount) errores.push(`Amount: ${errAmount}`);
-  const [okPhone, errPhone] = validarPhone(billing_address?.phone || "");
-  if (!okPhone) errores.push(`Phone: ${errPhone}`);
-  if (!cancel_url?.trim() || !success_url?.trim() || !error_url?.trim()) errores.push("Las URLs no pueden estar vacías");
-  if (errores.length) return res.status(400).json({ errores });
-  const amount_fmt = parseFloat(amount).toFixed(2);
-  const hash = generarHash(order_number, amount_fmt, currency, order_description, password);
-  const body = {
-    merchant_key,
-    operation: "purchase",
-    ...(method ? { methods: [method] } : {}),
-    order: {
-      number: order_number,
-      amount: amount_fmt,
-      currency,
-      description: order_description
-    },
-    cancel_url,
-    success_url,
-    error_url,
-    customer: {
-      name: customer_name,
-      email: customer_email
-    },
-    billing_address: {
-      country: billing_address.country.toUpperCase(),
-      state: billing_address.state,
-      city: billing_address.city,
-      address: billing_address.address,
-      zip: billing_address.zip,
-      phone: billing_address.phone
-    },
-    recurring_init: !!recurring_init,
-    req_token: !!req_token,
-    hash
-  };
-  res.json({ body });
-});
+  r.post("/generar-body", (req, res) => {
+    const {
+      merchant_key, password, order_number, order_description, amount, currency, method, cancel_url, success_url, error_url,
+      customer_name, customer_email, billing_address, recurring_init, req_token
+    } = req.body;
+    let errores = [];
+    if (!merchant_key?.trim()) errores.push("merchant_key es obligatorio");
+    if (!password?.trim()) errores.push("password es obligatorio");
+    if (!order_number?.trim()) errores.push("Order number es obligatorio");
+    if (!order_description?.trim()) errores.push("Order description es obligatorio");
+    const [okAmount, errAmount] = validarAmount(amount);
+    if (!okAmount) errores.push(`Amount: ${errAmount}`);
+    const [okPhone, errPhone] = validarPhone(billing_address?.phone || "");
+    if (!okPhone) errores.push(`Phone: ${errPhone}`);
+    if (!cancel_url?.trim() || !success_url?.trim() || !error_url?.trim()) errores.push("Las URLs no pueden estar vacías");
+    if (errores.length) return res.status(400).json({ errores });
+    const amount_fmt = parseFloat(amount).toFixed(2);
+    const hash = generarHash(order_number, amount_fmt, currency, order_description, password);
+    const body = {
+      merchant_key,
+      operation: "purchase",
+      ...(method ? { methods: [method] } : {}),
+      order: { number: order_number, amount: amount_fmt, currency, description: order_description },
+      cancel_url, success_url, error_url,
+      customer: { name: customer_name, email: customer_email },
+      billing_address: {
+        country: billing_address.country.toUpperCase(),
+        state: billing_address.state,
+        city: billing_address.city,
+        address: billing_address.address,
+        zip: billing_address.zip,
+        phone: billing_address.phone
+      },
+      recurring_init: !!recurring_init,
+      req_token: !!req_token,
+      hash
+    };
+    res.json({ body });
+  });
+}
+
+// Mount at /api/* (when Vercel forwards full path) and /* (when Vercel strips the /api prefix)
+const router = express.Router();
+registerRoutes(router);
+app.use("/api", router);
+app.use("/", router);
 
 app.listen(PORT, () => {
   console.log(`Backend running on http://localhost:${PORT}`);
 });
+
